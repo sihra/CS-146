@@ -1,0 +1,25 @@
+//Code for in case the song's list is one line
+// songPoint is where the song starts at the line
+					// listIndex is the songList array - the formal list of
+					// songs
+					for (int songPoint = 0, listIndex = 0; listIndex < line.length(); listIndex++) {
+
+						// Adding a song from the line before two spaces that
+						// indicate the coming of the next song
+						songListArrayList.set(listIndex, line.substring(songPoint, line.indexOf("  ")));
+
+						// Cutting the previous song off the line to move onto
+						// the next
+						line = line.substring(line.indexOf("  "));
+
+						// Loops through the line after the newly formatted line
+						// looking for the next
+						// non space character
+						for (int k = 0; k < line.length(); k++) {
+							if (line.charAt(k) != (' ')) {
+
+								songPoint = k;
+								break;
+							}
+						}
+					}
